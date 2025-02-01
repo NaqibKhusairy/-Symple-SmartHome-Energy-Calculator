@@ -1,59 +1,61 @@
 //CB24019 - PUTERA NAQIB KHUSAIRI BIN ASRI
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
 int main()
 {
     char Name[250] , Address [250] , MobileNo [250];
-    int PowerRating , HoursUsed , NumberOfDay;
-    float EnergyPerDay , TotalCumlativeEnergy = 0 , HoursUsedRate;
+    int power_rating , hours_used , number_of_day;
+    float energy_per_day , Total_Cumulative_Energy = 0 , Hours_Used_Rate;;
 
     printf("Name: ");
     gets(&Name);
     printf("Address: ");
     gets(&Address);
-    printf("Mobile Number: ");
+    printf("Mobile No: ");
     gets(&MobileNo);
 
     do
     {
         printf("\nEnter power rating for appliance (W): ");
-        scanf("%d",&PowerRating);
+        scanf("%d",&power_rating);
         printf("Enter number of hours used per day: ");
-        scanf("%d", &HoursUsed);
+        scanf("%d", &hours_used);
         printf("Enter number of days: ");
-        scanf("%d", &NumberOfDay);
-        if(PowerRating > 100 && PowerRating < 3000)
+        scanf("%d", &number_of_day);
+
+        if(power_rating > 100 && power_rating < 3000)
         {
-            if(PowerRating < 500)
+            if(power_rating < 500)
             {
-                HoursUsedRate = 1.5;
+                Hours_Used_Rate = 1.5;
             }
-            else if(PowerRating >= 500 && PowerRating <=1500)
+            else if(power_rating >= 500 && power_rating <= 1500)
             {
-                HoursUsedRate = 3.0;
+                Hours_Used_Rate = 3.0;
             }
-            else if(PowerRating > 1500)
+            else if(power_rating > 1500)
             {
-                HoursUsedRate = 5.0;
+                Hours_Used_Rate = 5.0;
             }
-            EnergyPerDay = HoursUsedRate * HoursUsed;
-            for(int num  = 1; num <= NumberOfDay; num++)
+            energy_per_day = Hours_Used_Rate * hours_used;
+            for(int num = 1; num <= number_of_day; num++)
             {
-                TotalCumlativeEnergy = TotalCumlativeEnergy + EnergyPerDay;
+                Total_Cumulative_Energy = Total_Cumulative_Energy + energy_per_day;
             }
-            printf("\nTotal Energy Consumption: %.1f kWh\n", TotalCumlativeEnergy);
+            printf("\nTotal Energy Consumption: %.1f kWh\n", number_of_day , Total_Cumulative_Energy);
         }
         else
         {
-            printf("Please Insert power rating between 100 and 300 only\n");
+            printf("Please Insert power rating between 100 and 3000 only\n");
             system("pause");
             system("cls");
             printf("Name: %s\n",Name);
             printf("Address: %s\n",Address);
-            printf("Mobile Number: %s\n",MobileNo);
+            printf("Mobile No: %s\n",MobileNo);
         }
     }
-    while(EnergyPerDay == 0.00);
-    printf("Thank You\n");
+    while(energy_per_day == 0.00);
+    printf("Thank you\n");
     return 0;
 }
