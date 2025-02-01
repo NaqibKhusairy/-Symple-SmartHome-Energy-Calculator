@@ -2,9 +2,9 @@
 #include <stdio.h>                                                                                  //Preprocessor directive for standard input/output
 #include <stdlib.h>                                                                                 //Used for standard library functions like exit()
 
-void print(int number_of_day ,float energy_per_day ,float Total_Cumulative_Energy)                  //Declare print Module with parameter
+void print(float Total_Cumulative_Energy)                                                           //Declare print Module with parameter
 {
-    printf("\nTotal Energy Consumption: %.1f kWh\n", number_of_day , Total_Cumulative_Energy);      //Print Output
+    printf("\nTotal Energy Consumption: %.1f kWh\n", Total_Cumulative_Energy);                      //Print Output
 }
 
 void calculate(int power_rating ,int hours_used ,int  number_of_day ,float *energy_per_day)         //Declare calculate Module with parameter
@@ -27,7 +27,7 @@ void calculate(int power_rating ,int hours_used ,int  number_of_day ,float *ener
     {
         Total_Cumulative_Energy = Total_Cumulative_Energy + *energy_per_day;                        //calculate Total_Cumulative_Energy
     }
-    print(number_of_day , *energy_per_day , Total_Cumulative_Energy);                               //call print module and past the parameter value
+    print(Total_Cumulative_Energy);                                                                 //call print module and past the parameter value
 }
 
 int main()                                                                                          //Declare main module
